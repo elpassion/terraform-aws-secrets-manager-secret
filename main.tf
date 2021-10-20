@@ -46,6 +46,6 @@ data "aws_iam_policy_document" "read_secret" {
 
 resource "aws_iam_policy" "read_secret" {
   count  = var.enabled ? 1 : 0
-  name   = "${var.name}-read-secret"
+  name   = "${module.label.id}-read-secret"
   policy = data.aws_iam_policy_document.read_secret[0].json
 }
