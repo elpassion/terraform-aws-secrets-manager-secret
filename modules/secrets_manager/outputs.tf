@@ -14,3 +14,8 @@ output "iam_policy_arn_read_secret" {
   value       = concat(aws_iam_policy.read_secret.*.arn, [""])[0]
   description = "ARN of an IMA policy, that allows read access to the secret."
 }
+
+output "iam_policy_document_read_secret" {
+  value       = concat(data.aws_iam_policy_document.read_secret.*.json, ["{}"])[0]
+  description = "IAM policy document, that allows read access to the secret."
+}
